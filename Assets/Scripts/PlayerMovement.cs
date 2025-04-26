@@ -23,6 +23,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * (moveSpeed * (speedPowerUp ? speedPowerFactor : 1) ) * Time.fixedDeltaTime); // Move the player using Rigidbody2D
+        rb.MovePosition(rb.position + movement * (moveSpeed * (speedPowerUp ? speedPowerFactor : 0) ) * Time.fixedDeltaTime); // Move the player using Rigidbody2D
     }
 }
