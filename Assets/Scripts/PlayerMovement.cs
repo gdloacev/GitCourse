@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f; // Speed of the player movement
+    [SerializeField] private float speedPowerFactor = 1.5f; // Speed of the player when running
+    [SerializeField] private bool speedPowerUp = false; // Flag to check if speed power-up is active
 
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
     private Vector2 movement; // Store the movement input
@@ -21,6 +23,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); // Move the player using Rigidbody2D
+        rb.MovePosition(rb.position + movement * (moveSpeed * (speedPowerUp ? speedPowerFactor : 1) ) * Time.fixedDeltaTime); // Move the player using Rigidbody2D
     }
 }
